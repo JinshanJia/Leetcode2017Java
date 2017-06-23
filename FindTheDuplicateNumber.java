@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * 287. Find the Duplicate Number
  *

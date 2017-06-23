@@ -1,3 +1,9 @@
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeSet;
+import java.util.stream.IntStream;
+
 /**
  * 436. Find Right Interval
  *
