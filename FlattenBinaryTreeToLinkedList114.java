@@ -27,7 +27,7 @@
 
 class FlattenBinaryTreeToLinkedList {
   public void flatten(TreeNode root) {
-    helper(root);
+    nonRecursive(root);
   }
 
   private static TreeNode helper(TreeNode root) {
@@ -47,5 +47,26 @@ class FlattenBinaryTreeToLinkedList {
       leftTail.right = rightHead;
     }
     return rightTail == null ? leftTail : rightTail;
+  }
+
+  private static void nonRecursive(TreeNode root) {
+    if (root == null) {
+      return;
+    }
+    Stack<TreeNode> stack = new Stack<TreeNode>();
+    stack.push(root);
+    while (!stack.empty()) {
+      TreeNode currentNode = stack.pop();
+      if (currentNode.right != null) {
+        stack.push(currentNode.right);
+      }
+      if (currentNode.left != null) {
+        stack.push(currentNode.left);
+      }
+      currentNode.left = null;
+      if (!stack.empty()) {
+        currentNode.right = stack.peek();
+      }
+    }
   }
 }
